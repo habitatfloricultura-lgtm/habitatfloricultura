@@ -8,7 +8,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-6 lg:space-y-8">
-            <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-primary/80 uppercase bg-primary/10 px-4 py-1.5 rounded-full">
+            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-primary/80 uppercase">
               Ateliê Botânico Premium
             </span>
 
@@ -18,13 +18,14 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-muted-foreground text-base lg:text-lg max-w-lg leading-relaxed">
-              Descubra plantas e acessórios selecionados para transformar qualquer
-              ambiente em um refúgio verde. Entrega cuidadosa em toda a cidade.
+              Curadoria exclusiva de plantas ornamentais e objetos de design
+              para criar o seu próprio santuário particular. Onde a sofisticação
+              encontra o orgânico.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <Button size="lg" className="rounded-full text-sm font-semibold px-8 gap-2">
-                Compre pelo WhatsApp
+                Comprar pelo WhatsApp
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
@@ -34,11 +35,13 @@ const HeroSection = () => {
               >
                 Ver Coleção
               </Button>
+              <div className="pl-2">
+                <span className="text-2xl font-bold text-foreground">500+</span>
+                <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-muted-foreground leading-tight">
+                  Espécies<br />Selecionadas
+                </p>
+              </div>
             </div>
-
-            <p className="text-sm text-muted-foreground">
-              <span className="font-bold text-foreground">500+</span> espécies selecionadas
-            </p>
           </div>
 
           {/* Right Image */}
