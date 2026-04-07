@@ -20,7 +20,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-background py-16 lg:py-20">
+    <section className="bg-muted py-16 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature) => (
