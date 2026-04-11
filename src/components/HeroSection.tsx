@@ -1,12 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import image1 from "@/assets/imagens/image5.jpeg";
+import { useNavigate } from "react-router-dom";
 type Props = {
   id?: string;
 };
 const HeroSection = ({ id }: Props) => {
+  const navigate = useNavigate();
+  const handleSeeMore = () => {
+    navigate("/colecao-botanica");
+  };
+  const handleWhatsApp = (product: any) => {
+    const phone = import.meta.env.VITE_WHATSAPP_PHONE; // 🔴 coloque seu número com DDD (sem espaços)
+
+    const message = `Olá! 👋
+Gostaria de mais informações 🌿
+Pode me ajudar?`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
   return (
-    <section className="bg-background" id={id}>
+    <section className="bg-background mt-10" id={id}>
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Content */}
@@ -21,13 +37,14 @@ const HeroSection = ({ id }: Props) => {
             </h1>
 
             <p className="text-muted-foreground text-base lg:text-lg max-w-lg leading-relaxed">
-              Curadoria exclusiva de plantas ornamentais e objetos de design
-              para criar o seu próprio santuário particular. Onde a sofisticação
-              encontra o orgânico.
+              Uma seleção especial de plantas e design que transforma seu espaço
+              em um refúgio particular — onde o natural e o sofisticado convivem
+              em perfeita harmonia.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
               <Button
+                onClick={handleWhatsApp}
                 size="lg"
                 className="rounded-full text-sm font-semibold px-8 gap-2"
               >
@@ -35,6 +52,7 @@ const HeroSection = ({ id }: Props) => {
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button
+                onClick={handleSeeMore}
                 size="lg"
                 variant="outline"
                 className="rounded-full text-sm font-semibold px-8 border-primary/30 text-primary hover:bg-primary/5"

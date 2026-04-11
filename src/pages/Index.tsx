@@ -13,7 +13,7 @@ import { useProducts } from "@/hooks/useProducts";
 const Index = () => {
   const navigate = useNavigate();
   const { data: products = [], isLoading } = useProducts();
-
+  console.log(products);
   const handleSeeMore = () => {
     navigate("/colecao-botanica");
   };
@@ -33,7 +33,7 @@ const Index = () => {
               Coleção Botânica
             </h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-md">
-              Plantas selecionadas com curadoria especial para seu lar.
+              As melhores plantas escolhidas para levar mais vida ao seu lar.
             </p>
           </div>
           <div className="hidden sm:flex gap-2 items-center">
@@ -46,7 +46,9 @@ const Index = () => {
           </div>
         </div>
         {isLoading ? (
-          <div className="container px-4 lg:px-8 text-center py-12 text-muted-foreground">Carregando produtos...</div>
+          <div className="container px-4 lg:px-8 text-center py-12 text-muted-foreground">
+            Carregando produtos...
+          </div>
         ) : (
           <CollectionSection products={products.slice(0, 6)} />
         )}
@@ -54,7 +56,7 @@ const Index = () => {
       {!isLoading && (
         <GardenSection
           id="garden"
-          products={products.filter((p) => p.category === "plantas").slice(0, 4)}
+          products={products.filter((p) => p.category === "vasos").slice(0, 4)}
         />
       )}
       <StorySection id="story" />
