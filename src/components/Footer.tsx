@@ -1,23 +1,26 @@
 import { Leaf } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
+type Props = {
+  id?: string;
+};
 const footerLinks = [
   {
     title: "Serviços",
-    links: ["Plantas de Interior", "Paisagismo", "Manutenção", "Consultoria"],
-  },
-  {
-    title: "Empresa",
-    links: ["Sobre nós", "Blog", "Carreiras", "Imprensa"],
+    links: ["Plantas de Interior", "Paisagismo"],
+    type: "internal",
   },
   {
     title: "Suporte",
-    links: ["FAQ", "Envio", "Devoluções", "Contato"],
+    links: ["FAQ", "Envio", "Devoluções", "Consultoria"],
+    type: "whatsapp",
   },
 ];
 
-const Footer = () => {
+const Footer = ({ id }: Props) => {
+  const navigate = useNavigate();
+
   return (
-    <footer className="bg-secondary py-12 lg:py-16">
+    <footer id={id} className="bg-secondary py-12 lg:py-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -40,16 +43,31 @@ const Footer = () => {
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-secondary-foreground/50 text-sm hover:text-secondary-foreground transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((link) =>
+                  col.type === "internal" ? (
+                    <li key={link}>
+                      <button
+                        onClick={() => navigate("/colecao-botanica")}
+                        className="text-secondary-foreground/50 text-sm hover:text-secondary-foreground transition-colors"
+                      >
+                        {link}
+                      </button>
+                    </li>
+                  ) : (
+                    <li key={link}>
+                      <a
+                        className="text-secondary-foreground/50 text-sm hover:text-secondary-foreground transition-colors"
+                        href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE}?text=${encodeURIComponent(
+                          `Olá! 👋\nGostaria de mais informações 🌿\nPode me ajudar?`,
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}
@@ -57,7 +75,7 @@ const Footer = () => {
 
         <div className="border-t border-secondary-foreground/10 mt-10 pt-6 text-center">
           <p className="text-secondary-foreground/40 text-xs">
-            © 2024 Jardim Encantado. Todos os direitos reservados.
+            © 2026 Habitat Floricultura. Todos os direitos reservados.
           </p>
         </div>
       </div>

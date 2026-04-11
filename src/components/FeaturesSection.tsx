@@ -1,26 +1,32 @@
 import { Truck, Heart, Headphones } from "lucide-react";
+type Props = {
+  id?: string;
+};
 
 const features = [
   {
     icon: Truck,
     title: "Entrega rápida",
-    description: "Logística cuidadosa para que suas plantas cheguem frescas e seguras em sua casa.",
+    description:
+      "Logística cuidadosa para que suas plantas cheguem frescas e seguras em sua casa.",
   },
   {
     icon: Heart,
     title: "Plantas saudáveis",
-    description: "Cultivo especializado com acompanhamento botânico permanente em cada exemplar.",
+    description:
+      "Cultivo especializado com acompanhamento botânico permanente em cada exemplar.",
   },
   {
     icon: Headphones,
     title: "Atendimento personalizado",
-    description: "Consultoria exclusiva para ajudar você a escolher a planta ideal para seu ambiente.",
+    description:
+      "Consultoria exclusiva para ajudar você a escolher a planta ideal para seu ambiente.",
   },
 ];
 
-const FeaturesSection = () => {
+const FeaturesSection = ({ id }: Props) => {
   return (
-    <section className="bg-muted py-16 lg:py-20">
+    <section className="bg-muted py-16 lg:py-20" id={id}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature) => (

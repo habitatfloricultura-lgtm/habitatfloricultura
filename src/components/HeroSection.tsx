@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-const HeroSection = () => {
+import image1 from "@/assets/imagens/image5.jpeg";
+type Props = {
+  id?: string;
+};
+const HeroSection = ({ id }: Props) => {
   return (
-    <section className="bg-background">
+    <section className="bg-background" id={id}>
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Content */}
@@ -24,7 +27,10 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
-              <Button size="lg" className="rounded-full text-sm font-semibold px-8 gap-2">
+              <Button
+                size="lg"
+                className="rounded-full text-sm font-semibold px-8 gap-2"
+              >
                 Comprar pelo WhatsApp
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -38,7 +44,9 @@ const HeroSection = () => {
               <div className="pl-2">
                 <span className="text-2xl font-bold text-foreground">500+</span>
                 <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-muted-foreground leading-tight">
-                  Espécies<br />Selecionadas
+                  Espécies
+                  <br />
+                  Selecionadas
                 </p>
               </div>
             </div>
@@ -48,7 +56,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-[3/4]">
               <img
-                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=1000&fit=crop"
+                src={image1}
                 alt="Plantas decorativas em ambiente elegante"
                 className="w-full h-full object-cover"
                 loading="lazy"
