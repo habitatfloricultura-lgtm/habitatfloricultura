@@ -14,7 +14,15 @@ const fetchProducts = async (): Promise<Product[]> => {
     "https://vkpmrgpwdxcgmlrruptz.supabase.co/functions/v1/get-products"
   );
   if (!res.ok) throw new Error("Erro ao buscar produtos");
-  return res.json();
+  const data = await res.json();
+  return data.map((item: any) => ({
+    name: item.name,
+    namecientifico: item.scientific_name || "",
+    category: item.categories?.name || "",
+    description: item.description || "",
+    price: item.price ? `R$ ${Number(item.price).toFixed(2)}` : "",
+    image: item.image_url || "",
+  }));
 };
 
 export const useProducts = () => {
