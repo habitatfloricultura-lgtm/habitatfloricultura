@@ -7,6 +7,7 @@ export type Product = {
   description: string;
   price: string;
   image: string;
+  status: string;
 };
 
 const fetchProducts = async (): Promise<Product[]> => {
@@ -22,6 +23,7 @@ const fetchProducts = async (): Promise<Product[]> => {
     description: item.description || "",
     price: item.price ? `R$ ${Number(item.price).toFixed(2)}` : "",
     image: item.image_url || "",
+    status: item.status || "disponivel",
   }));
 };
 
