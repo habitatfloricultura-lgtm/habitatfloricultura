@@ -31,9 +31,20 @@ const CollectionSection = ({ products }: { products: any[] }) => {
                 />
               </div>
               <div className="space-y-2">
-                <p className="text-xs font-semibold text-primary">
-                  {product.price}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs font-semibold text-primary">
+                    {product.price}
+                  </p>
+                  <span
+                    className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                      product.status === "disponivel"
+                        ? "bg-primary/10 text-primary"
+                        : "bg-destructive/10 text-destructive"
+                    }`}
+                  >
+                    {product.status === "disponivel" ? "Disponível" : "Indisponível"}
+                  </span>
+                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground">
                   {product.name}
                 </h3>
