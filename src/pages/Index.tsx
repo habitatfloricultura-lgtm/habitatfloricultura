@@ -36,7 +36,7 @@ const Index = () => {
               As melhores plantas escolhidas para levar mais vida ao seu lar.
             </p>
           </div>
-          <div className="hidden sm:flex gap-2 items-center">
+          <div className="flex gap-2 items-center">
             <Button
               onClick={handleSeeMore}
               className="rounded-full text-xs px-4"
