@@ -2,17 +2,12 @@ import React from "react";
 import CollectionSection from "@/components/CollectionSection";
 import Header from "@/components/Header";
 import { useProducts } from "@/hooks/useProducts";
+import { useCategories } from "@/hooks/useCategories";
 
 const ColecaoBotanica = () => {
   const [selectedCategories, setSelectedCategories] = React.useState<string[]>([]);
   const { data: products = [], isLoading } = useProducts();
-
-  const categories = [
-    { label: "Plantas", value: "plantas" },
-    { label: "Vasos", value: "vasos" },
-    { label: "Iluminação", value: "iluminacao" },
-    { label: "Adubos", value: "adubos" },
-  ];
+  const { data: categories = [] } = useCategories();
 
   const toggleCategory = (value: string) => {
     setSelectedCategories((prev) =>
