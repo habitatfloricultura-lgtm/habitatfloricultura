@@ -60,7 +60,7 @@ Pode me ajudar?`;
                 Ver Coleção
               </Button>
               <div className="pl-2">
-                <span className="text-2xl font-bold text-foreground">500+</span>
+                <span className="text-2xl font-bold text-foreground">100+</span>
                 <p className="text-[10px] font-semibold tracking-[0.1em] uppercase text-muted-foreground leading-tight">
                   Espécies
                   <br />

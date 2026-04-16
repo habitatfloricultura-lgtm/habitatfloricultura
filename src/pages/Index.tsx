@@ -15,7 +15,7 @@ import { useLocation } from "react-router-dom";
 const Index = () => {
   const navigate = useNavigate();
   const { data: products = [], isLoading } = useProducts();
-
+  console.log(products);
   const handleSeeMore = () => {
     navigate("/colecao-botanica");
   };
@@ -64,13 +64,19 @@ const Index = () => {
             Carregando produtos...
           </div>
         ) : (
-          <CollectionSection products={products.slice(0, 6)} />
+          <CollectionSection
+            products={products
+              .filter((p) => p.category === "plantas")
+              .slice(0, 6)}
+          />
         )}
       </section>
       {!isLoading && (
         <GardenSection
           id="garden"
-          products={products.filter((p) => p.category === "vasos").slice(0, 4)}
+          products={products
+            .filter((p) => ["vasos", "Iluminação"].includes(p.category))
+            .slice(0, 4)}
         />
       )}
       <StorySection id="story" />
