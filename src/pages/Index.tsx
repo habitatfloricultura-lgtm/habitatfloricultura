@@ -9,17 +9,31 @@ import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useProducts } from "@/hooks/useProducts";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
   const { data: products = [], isLoading } = useProducts();
-  console.log(products);
+
   const handleSeeMore = () => {
     navigate("/colecao-botanica");
   };
+  const ScrollToHash = () => {
+    const { hash } = useLocation();
 
+    useEffect(() => {
+      if (hash) {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }
+    }, [hash]);
+
+    return null;
+  };
   return (
     <div className="bg-background ">
+      <ScrollToHash />
       <Header />
       <HeroSection id="hero" />
       <FeaturesSection id="features" />

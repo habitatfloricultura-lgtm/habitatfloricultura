@@ -27,7 +27,7 @@ const StorySection = ({ id }: Props) => {
             </h2>
 
             <p className="text-muted-foreground text-base leading-relaxed">
-              Desde 2012, a Floricultura Habitat do Júlio é referência em
+              Desde 2015, a Floricultura Habitat do Júlio é referência em
               plantas ornamentais e cuidados com o verde. Trabalhando
               diretamente de casa, Júlio seleciona cada planta com dedicação e
               carinho, garantindo qualidade e beleza em cada detalhe. Aqui, você

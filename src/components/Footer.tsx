@@ -28,11 +28,11 @@ const Footer = ({ id }: Props) => {
             <a href="#" className="flex items-center gap-2">
               <Leaf className="h-5 w-5 text-secondary-foreground/80" />
               <span className="font-serif text-lg font-bold text-secondary-foreground">
-                Jardim Encantado
+                habitat Floricultura
               </span>
             </a>
             <p className="text-secondary-foreground/50 text-sm leading-relaxed">
-              Transformando espaços com a beleza da natureza desde 2012.
+              Transformando espaços com a beleza da natureza desde 2015.
             </p>
           </div>
 

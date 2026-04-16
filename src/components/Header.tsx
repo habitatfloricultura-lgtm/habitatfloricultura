@@ -28,7 +28,14 @@ Pode me ajudar?`;
 
     window.open(url, "_blank");
   };
-
+  const handleNavClick = (href: string) => {
+    if (window.location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-card/95 backdrop-blur-sm border-b">
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
@@ -43,13 +50,13 @@ Pode me ajudar?`;
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
+              onClick={() => handleNavClick(link.href)}
               className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
             >
               {link.name}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -82,17 +89,18 @@ Pode me ajudar?`;
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className=" fixed lg:hidden bg-card border-t px-4 py-6 space-y-4">
+        <div className="fixed top-16 right-0  w-64 lg:hidden bg-card border-l px-4 py-6 space-y-4 shadow-lg">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+              onClick={() => handleNavClick(link.href)}
+              className="block py-2 px-3 rounded-md text-sm font-medium text-foreground/70 hover:text-primary hover:bg-muted transition"
             >
               {link.name}
-            </a>
+            </button>
           ))}
           <Button
+            onClick={handleWhatsApp}
             size="sm"
             className="rounded-full w-full text-xs font-semibold"
           >
