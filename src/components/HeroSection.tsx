@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import image1 from "@/assets/imagens/image5.jpeg";
+import image1 from "@/assets/imagens/image7.jpeg";
+import image2 from "@/assets/imagens/image8.jpeg";
+import image3 from "@/assets/imagens/image9.jpeg";
 import { useNavigate } from "react-router-dom";
 type Props = {
   id?: string;
@@ -10,6 +13,17 @@ const HeroSection = ({ id }: Props) => {
   const handleSeeMore = () => {
     navigate("/colecao-botanica");
   };
+  const images = [image1, image2, image3];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
   const handleWhatsApp = (product: any) => {
     const phone = import.meta.env.VITE_WHATSAPP_PHONE; // 🔴 coloque seu número com DDD (sem espaços)
 
@@ -74,9 +88,9 @@ Pode me ajudar?`;
           <div className="relative">
             <div className="rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-[3/4]">
               <img
-                src={image1}
+                src={images[currentImage]}
                 alt="Plantas decorativas em ambiente elegante"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover scale-105 hover:scale-110 transition-all duration-[6000ms]"
                 loading="lazy"
               />
             </div>
