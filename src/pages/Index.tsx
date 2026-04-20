@@ -75,7 +75,9 @@ const Index = () => {
         <GardenSection
           id="garden"
           products={products
-            .filter((p) => ["vasos", "Iluminação"].includes(p.category))
+            .filter((p) =>
+              ["vasos", "Iluminação", "Decoração"].includes(p.category),
+            )
             .slice(0, 4)}
         />
       )}
